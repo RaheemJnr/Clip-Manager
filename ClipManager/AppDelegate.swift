@@ -6,12 +6,29 @@
 //
 
 import SwiftUI
-
 @main
-struct ClipManagerApp: App {
+struct ClipboardManagerApp: App {
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @StateObject private var clipboardManager = ClipboardManager()
+
     var body: some Scene {
-        WindowGroup {
+        MenuBarExtra("Clipboard Manager", systemImage: "clipboard") {
             ContentView()
+                .environmentObject(clipboardManager)
+            
+            Divider()
+            
+            Button("Quit") {
+                NSApplication.shared.terminate(nil)
+            }
         }
+        .menuBarExtraStyle(.window)
+    }
+}
+
+class AppDelegate: NSObject, NSApplicationDelegate {
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        // Hide the dock icon
+        NSApp.setActivationPolicy(.accessory)
     }
 }
