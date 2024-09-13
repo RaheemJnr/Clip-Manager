@@ -1,5 +1,7 @@
 # Clipboard Manager for macOS
 
+![Menu Bar Icon](screenshots/menu-bar-icon.png)
+
 ## Introduction
 Clipboard Manager is a lightweight, efficient menu bar application for macOS that enhances your clipboard functionality. It allows you to store and manage multiple clipboard items, providing quick access to your copying history.
 
